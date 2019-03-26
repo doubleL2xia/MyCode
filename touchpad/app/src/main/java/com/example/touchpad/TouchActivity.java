@@ -36,7 +36,6 @@ public class TouchActivity extends Activity implements OnTouchListener{
     Button btnRight = null;
     Button btnMove = null;
 
-    GestureDetector myGestureDetector;
     public static int windowWidth;
     public static int windowHeight;
     private float o_x = 0.0f;
@@ -50,7 +49,6 @@ public class TouchActivity extends Activity implements OnTouchListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_touch);
         init();
-        myGestureDetector = new GestureDetector(this, new MyGestureListener(getApplicationContext(),sensitivity));
         findViews();
         setListeners();
     }
@@ -75,7 +73,6 @@ public class TouchActivity extends Activity implements OnTouchListener{
                 o_x = c_x;
                 o_y = c_y;
             }
-            //return myGestureDetector.onTouchEvent(e);
         }else{
             if(v.getId() == R.id.btnLeft){//如果点击左键
                 if(e.getAction() == MotionEvent.ACTION_DOWN){//按下
